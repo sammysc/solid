@@ -1,6 +1,15 @@
+// Objetivo: Implementar o princípio de substituição de Liskov.
+// O princípio de substituição de Liskov é um princípio da programação orientada a objetos que diz que um objeto de uma classe filha deve ser capaz de substituir um objeto da classe pai sem que isso cause erros ou problemas na execução do código.
+// Para isso, é necessário que as classes filhas possuam os mesmos métodos e propriedades que a classe pai, e que esses métodos e propriedades sejam compatíveis entre si.
+// Implemente o princípio de substituição de Liskov no código abaixo. O código é um exemplo simplificado de um sistema de gestão de funcionários de uma empresa.
+// O código possui uma interface Funcionario, que possui as propriedades nome e cargaHoraria, e duas classes que implementam essa interface: FuncionarioEfetivo e FuncionarioVoluntario.
+// A classe FuncionarioEfetivo possui uma propriedade adicional chamada salario, e dois métodos adicionais: calculaSalarioLiquido e calculaParticipacaoDeLucros.
+// A classe FuncionarioVoluntario possui uma propriedade adicional chamada orientador, que é um objeto da classe FuncionarioEfetivo, e um método adicional chamado escreveRelatorio.
+
 interface Funcionario {
     nome: string;
     cargaHoraria: number;
+    trabalha(): void;  //void porque não retorna nada
 }
 
 interface FuncionarioEfetivo extends Funcionario {
@@ -13,7 +22,7 @@ interface FuncionarioVoluntario extends Funcionario {
     escreveRelatorio(): void;
 }
 
-class FuncionarioEfetivo implements FuncionarioEfetivo {
+class FuncionarioEfetivo implements FuncionarioEfetivo {  
     constructor(nome: string, cargaHoraria: number, salario: number) {
         this.nome = nome;
         this.cargaHoraria = cargaHoraria;
